@@ -1,0 +1,337 @@
+---
+swagger: "2.0"
+info:
+  description: "SSO TEST"
+  version: "1.0.0"
+  title: ""
+host: "localhost"
+basePath: "/"
+schemes:
+- "http"
+- "https"
+paths:
+  /login:
+    get:
+      tags:
+      - "login"
+      summary: "list"
+      operationId: "getlistAllProduct"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/list_product"
+      responses:
+        "200":
+          description: "OK"
+        "500":
+          description: "Unexpected error."
+      x-swagger-router-controller: "Product"
+    post:
+      tags:
+      - "login"
+      summary: "list"
+      operationId: "listAllProduct"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/list_product"
+      responses:
+        "200":
+          description: "OK"
+        "500":
+          description: "Unexpected error."
+      x-swagger-router-controller: "Product"
+  /checktoken:
+    post:
+      tags:
+      - "login"
+      summary: "list"
+      operationId: "checktoken"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      - "application/xml"
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/list_product"
+      responses:
+        "200":
+          description: "OK"
+        "500":
+          description: "Unexpected error."
+      x-swagger-router-controller: "Product"
+  /userinfo:
+    get:
+      tags:
+      - "login"
+      summary: "list"
+      operationId: "userinfo"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      - "application/xml"
+      - "application/x-www-form-urlencoded"
+      parameters: []
+      responses:
+        "200":
+          description: "OK"
+        "500":
+          description: "Unexpected error."
+      x-swagger-router-controller: "Product"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  add_aktuel:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        format: "string"
+      img:
+        type: "string"
+        format: "string"
+  add_product_sharelist:
+    type: "object"
+    properties:
+      product_id:
+        type: "string"
+        format: "string"
+      sharelist_id:
+        type: "string"
+        format: "string"
+  addbaskets:
+    type: "object"
+    properties:
+      product_id:
+        type: "string"
+        format: "string"
+  editbaskets:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      product_id:
+        type: "string"
+        format: "string"
+  edit_aktuel:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+      img:
+        type: "string"
+        format: "string"
+  add_category:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        format: "string"
+      cat_id:
+        type: "string"
+        format: "string"
+  add_market:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+        format: "string"
+  cheap_product:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+      brand:
+        type: "string"
+        format: "string"
+  edit_market:
+    type: "object"
+    required:
+    - "id"
+    - "name"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+  edit_category:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+      cat_id:
+        type: "string"
+        format: "string"
+  add_brand:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        format: "string"
+  edit_brand:
+    type: "object"
+    required:
+    - "id"
+    - "name"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+  list_product:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+        format: "string"
+  add_sharelist:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        format: "string"
+      share:
+        type: "string"
+        format: "string"
+      id:
+        type: "string"
+        format: "string"
+  add_user:
+    type: "object"
+    properties:
+      mail:
+        type: "string"
+        format: "string"
+      pass:
+        type: "string"
+        format: "string"
+      repass:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+      lastname:
+        type: "string"
+        format: "string"
+      phone:
+        type: "string"
+        format: "string"
+  saveuuid:
+    type: "object"
+    properties:
+      uuid:
+        type: "string"
+        format: "string"
+  social_user:
+    type: "object"
+    properties:
+      google_id:
+        type: "string"
+        format: "string"
+      email:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+      uuid:
+        type: "string"
+        format: "string"
+      auth:
+        type: "string"
+        format: "string"
+  edit_sharelist:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      name:
+        type: "string"
+        format: "string"
+  get_token:
+    type: "object"
+    properties:
+      mail:
+        type: "string"
+        format: "string"
+      pass:
+        type: "string"
+        format: "string"
+  matching:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "string"
+      product:
+        type: "string"
+        format: "string"
+  forgotpass:
+    type: "object"
+    properties:
+      mail:
+        type: "string"
+        format: "string"
+  delete:
+    type: "object"
+    required:
+    - "id"
+    properties:
+      id:
+        type: "string"
+        format: "string"

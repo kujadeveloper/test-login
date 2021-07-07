@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-login
+spec:
+  selector:
+    matchLabels:
+      app: test-login
+      tier: test-login
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-login
+        tier: test-login
+        track: test-login
+    spec:
+      containers:
+      - name: node:latest
+        image: hakankuja/matrix:v0.1
+        command: 
+          - sh
+          - -c
+          - cd /app && npm i && npm start
+        ports:
+        - containerPort: 8080
+          name: synapse-http
